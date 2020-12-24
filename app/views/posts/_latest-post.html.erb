@@ -3,8 +3,8 @@
     <div class="box card mb-2">
         <article class="media">
             <div class="media-left">
-                <figure class="image is-64x64">
-                    <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+                <figure class="image is-64x64 ">
+                    <%= gravatar_image_tag(post.user.email, size: 64, class: 'rounded-circle mr-2',  alt: post.user.name) %>
                 </figure>
             </div>
             <div class="media-content">

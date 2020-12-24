@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.post.build(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |f|
       if @post.save
