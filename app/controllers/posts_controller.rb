@@ -1,16 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    @posts = Post.all
-  end
-
-  def new
+    @posts = Post.all.order('created_at DESC')
     @post = Post.new
   end
 
+  def new
+    @post = current_user.posts.build
+  end
+
   def create
-    @post = Post.new(post_params)
+    @post = current_user.post.build(post_params)
 
     respond_to do |f|
       if @post.save

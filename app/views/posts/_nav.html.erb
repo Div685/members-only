@@ -1,27 +1,28 @@
-<nav class="navbar navbar-expand-lg align-items-center bg-primary d-flex justify-content-between">
+<nav class="navbar navbar-expand-lg align-items-center bg-danger d-flex justify-content-between">
       <div class="logo text-white">
           <h1 class="h3">Members</h1>
       </div>
       <div class="nav-right d-flex flex-row align-items-center">
          
+          <% if user_signed_in? %>
            <div class="button-newpost mr-2">
               <button type="button" class="btn bg-light rounded">New Post</button>
           </div>
 
           <div class="d-flex">
-            <%# <%= link_to "root", edit_user_registration_path, class: "btn text-white" %> %>
+            <%= link_to current_user.name, edit_user_registration_path, class: "btn text-white" %>
           </div>
 
           <div class="d-flex">
-            <%# <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none" %> %>
+            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "text-white text-decoration-none" %>
           </div>
-
+          <% else %>
           <div class="signIn mr-2">
-            <%# <%= link_to "Sing In", new_user_session_path, class: "mr-2 btn text-white font-weight-bold text-decoration-none"%> %>
+            <%= link_to "Sing In", new_user_session_path, class: "mr-2 btn text-white font-weight-bold text-decoration-none"%>
           </div>
           <div class="signUp">
-            <%# <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-light font-weight-bold text-decoration-none" %> %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-light font-weight-bold text-decoration-none" %>
           </div>
-
+          <% end %>
       </div>
     </nav>  
