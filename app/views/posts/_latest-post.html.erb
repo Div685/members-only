@@ -1,6 +1,11 @@
 <div class="column is-half">
+<div class="card-title">
+    <h3 class="h3 text-primary text-capitalize font-weight-bold d-flex justify-content-center">Latest Posts</h3>
+    
+</div>
+<hr>
 <% @posts.each do | post | %>
-    <div class="box card mb-2">
+    <div class="box mb-2">
         <article class="media">
             <div class="media-left">
                 <figure class="image is-64x64 ">
@@ -16,10 +21,11 @@
                             <strong> Anonymous User </strong><br />
                             <small> @Anonymous </small><br />
                         <% end %>
-                    <p><%= post.title %> </p>
+                    <p> <%= post.title %> </p>
                 </div>
             </div>
         </article>
     </div>
+    <hr />
 <% end %>
 </div>

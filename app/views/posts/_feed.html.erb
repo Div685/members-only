@@ -1,25 +1,32 @@
-<div class="column is-half">
+<div class="post-grid">
+
 <% @posts.each do | post | %>
-    <div class="box">
-        <article class="media">
-            <div class="media-left">
-                <figure class="image is-64x64">
-                    <%= gravatar_image_tag(post.user.email, size: 64, alt: post.user.name) %>
+    <div class="box card mr-1 p-3 d-flex flex-column">
+            <div class="media-left d-flex">
+                <figure class="">
+                    <%= gravatar_image_tag(post.user.email,size: 15, alt: post.user.name, class: 'rounded-circle mr-2') %>
                 </figure>
-            </div>
-            <div class="media-content">
-                <div class="content">
-                <% if user_signed_in? %>
-                        <strong class="text-capitalize "> <%= post.user.name %> </strong><br />
-                        <small> @<%= post.user.username %> </small><br />
+                <div class="content d-flex flex-column">
+                    
+                    <div class="d-flex flex-column m-0 p-0">
+                        <% if user_signed_in? %>
+                            <strong class="text-capitalize "> <%= post.user.name %> </strong>
+                            <small> @<%= post.user.username %> </small>
                         <% else %>
-                            <strong> Anonymous User </strong><br />
-                            <small> @Anonymous </small><br />
+                            <strong> Anonymous User </strong>
+                            <small> @Anonymous </small>
                         <% end %>
-                    <p><%= post.post %> </p>
-                </div>
+                    </div>    
+                </div>  
+            </div>
+
+        <article class=" media d-flex">
+            <div class="media-content">
+                <p class="post-title"><%= post.title%></p>
+                <p class="w-100 post-body"><%= post.post %> </p> 
             </div>
         </article>
+        
     </div>
 <% end %>
 </div>
