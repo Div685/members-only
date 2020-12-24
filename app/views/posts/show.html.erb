@@ -1,0 +1,39 @@
+<%= render 'nav'%>
+
+<div class="show-post">
+    <div class="show-post-title">
+        <h1 class="text-primary font-weight-bold text-uppercase"><%= @post.title %> </h1>
+    </div>
+
+    <div class="show-post-body">
+        <p class="">
+            <%= @post.post %>
+        </p>
+    </div>
+
+    <div class="media-left d-flex">
+                <% if user_signed_in? %>
+                    <figure class="">
+                        <%= gravatar_image_tag(current_user.email,size: 15, alt: current_user.name, class: 'rounded-circle mr-2') %>
+                    </figure>
+                <%else%>
+                    <figure class="">
+                        <%= gravatar_image_tag('link.jpg',size: 15, alt: "current_user", class: 'rounded-circle mr-2') %>
+                    </figure>
+                <% end %>
+
+                <div class="content d-flex flex-column">
+                    
+                    <div class="d-flex flex-column m-0 p-0">
+                        <% if user_signed_in? %>
+                            <strong class="text-capitalize "> <%= current_user.name %> </strong>
+                            <small> @<%= current_user.username %> </small>
+                        <% else %>
+                            <strong> Anonymous User </strong>
+                            <small> @Anonymous </small>
+                        <% end %>
+                    </div>    
+                </div>  
+            </div>
+
+</div>

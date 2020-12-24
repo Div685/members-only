@@ -19,6 +19,10 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
         cursor: pointer;
       }
+    
+    .post-title {
+      font-size: 22px;
+    }
 
     .post-body {
         font-size: 14px;
@@ -27,6 +31,24 @@
         display: -webkit-box;
         -webkit-line-clamp: 5;
         -webkit-box-orient: vertical;
+        text-align: justify;
       }
+
+}
+
+.show-post {
+  top: 20%;
+  left: 20%;
+  position: absolute;
+
+    .show-post-body{
+      margin: 10px 0;
+      width: 75%;
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        text-align: justify;
+      }
+    }
 
 }

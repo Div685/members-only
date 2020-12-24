@@ -22,7 +22,7 @@
 
         <article class=" media d-flex">
             <div class="media-content">
-                <p class="post-title"><%= post.title%></p>
+                <p class="post-title text-uppercase"><%= link_to post.title, post_path(post) %></p>
                 <p class="w-100 post-body"><%= post.post %> </p> 
             </div>
         </article>
