@@ -10,7 +10,17 @@ class PostsController < ApplicationController
   end
 
   def create
-    
+    @post = Post.new(post_params)
+
+    respond_to do |f|
+      if @post.save
+        f.html { redirect_to root_path, notice: 'Post was Successfully Created' }
+        f.json { render :show, status: :created, location: @post }
+      else
+        f.html { render :new  }
+        f.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def show
@@ -20,7 +30,14 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    respond_to do |format|
+      format.html { redirect_to posts_url, notice: 'Post was Successfully destroyed' }
+      format.json { head :no_content }
+    end
   end
+
+  private
 
   # Use callbacks to share common setup or constraints between actions.
   def set_post
