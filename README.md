@@ -1,5 +1,4 @@
 # Members-only
-This is the lightweight version of the Twitter clone that focuses on Authentication systems so users can only access areas of a site they are authorized to.
 
 ![screenshot](Screenshot.png)
 
