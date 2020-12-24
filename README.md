@@ -1,4 +1,4 @@
-# Members-only
+# Members-Only
 
 ![screenshot](Screenshot.png)
 

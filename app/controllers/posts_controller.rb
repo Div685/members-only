@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
-  before_action :authenticate_user!, except: [:index, :show]
-  
+  before_action :authenticate_user!, except: %i[index show]
+
   def index
     @posts = Post.all.order('created_at DESC')
     @post = Post.new
@@ -19,17 +19,15 @@ class PostsController < ApplicationController
         f.html { redirect_to root_path, notice: 'Post was Successfully Created' }
         f.json { render :show, status: :created, location: @post }
       else
-        f.html { render :new  }
+        f.html { render :new }
         f.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def destroy
     @post.destroy
