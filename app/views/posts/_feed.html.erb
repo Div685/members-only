@@ -9,8 +9,13 @@
             </div>
             <div class="media-content">
                 <div class="content">
-                    <strong> <%= post.user.name %></strong><br />
-                    <small> @<%= post.user.username %></small><br />
+                <% if user_signed_in? %>
+                        <strong class="text-capitalize "> <%= post.user.name %> </strong><br />
+                        <small> @<%= post.user.username %> </small><br />
+                        <% else %>
+                            <strong> Anonymous User </strong><br />
+                            <small> @Anonymous </small><br />
+                        <% end %>
                     <p><%= post.post %> </p>
                 </div>
             </div>
