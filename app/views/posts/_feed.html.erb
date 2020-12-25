@@ -4,18 +4,12 @@
     <div class="box card mr-1 p-3 d-flex flex-column">
             <div class="media-left d-flex">
                 <figure class="">
-                    <%= gravatar_image_tag(post.user.email,size: 15, alt: post.user.name, class: 'rounded-circle mr-2') %>
+                    <%= gravatar_image_tag("https://avatars0.githubusercontent.com/u/24191094?s=460&u=3ff3f72b1d024776af5a0a60534f5a5f98e741b1&v=4",size: 15, alt: post.user.name, class: 'rounded-circle mr-2') %>
                 </figure>
                 <div class="content d-flex flex-column">
                     
                     <div class="d-flex flex-column m-0 p-0">
-                        <% if user_signed_in? %>
-                            <strong class="text-capitalize "> <%= post.user.name %> </strong>
-                            <small> @<%= post.user.username %> </small>
-                        <% else %>
-                            <strong> Anonymous User </strong>
-                            <small> @Anonymous </small>
-                        <% end %>
+                        <%= user_signed_in(post) %>
                     </div>    
                 </div>  
             </div>

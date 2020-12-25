@@ -14,13 +14,7 @@
             </div>
             <div class="media-content">
                 <div class="content">
-                <% if user_signed_in? %>
-                        <strong class="text-capitalize "> <%= post.user.name %> </strong><br />
-                        <small> @<%= post.user.username %> </small><br />
-                        <% else %>
-                            <strong> Anonymous User </strong><br />
-                            <small> @Anonymous </small><br />
-                        <% end %>
+                <%= user_signed_in(post) %>
                     <p> <%= post.title %> </p>
                 </div>
             </div>

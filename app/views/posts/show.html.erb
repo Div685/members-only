@@ -12,26 +12,12 @@
     </div>
 
     <div class="media-left d-flex">
-                <% if user_signed_in? %>
-                    <figure class="">
-                        <%= gravatar_image_tag(current_user.email,size: 15, alt: current_user.name, class: 'rounded-circle mr-2') %>
-                    </figure>
-                <%else%>
-                    <figure class="">
-                        <%= gravatar_image_tag('link.jpg',size: 15, alt: "current_user", class: 'rounded-circle mr-2') %>
-                    </figure>
-                <% end %>
+                <%= gravatar_image_tag(current_user.email,size: 15, alt: current_user.name, class: 'rounded-circle mr-2') %>
 
                 <div class="content d-flex flex-column">
                     
                     <div class="d-flex flex-column m-0 p-0">
-                        <% if user_signed_in? %>
-                            <strong class="text-capitalize "> <%= current_user.name %> </strong>
-                            <small> @<%= current_user.username %> </small>
-                        <% else %>
-                            <strong> Anonymous User </strong>
-                            <small> @Anonymous </small>
-                        <% end %>
+                        <%= user_signed_in(@post) %>
                     </div>    
                 </div>  
             </div>
