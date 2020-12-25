@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[show edit update destroy]
+  before_action :set_post, only: %i[show destroy]
   before_action :authenticate_user!, except: %i[index show]
 
   def index
@@ -24,10 +24,6 @@ class PostsController < ApplicationController
       end
     end
   end
-
-  def show; end
-
-  def edit; end
 
   def destroy
     @post.destroy
