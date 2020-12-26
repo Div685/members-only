@@ -1,0 +1,25 @@
+<%= render 'nav'%>
+
+<div class="show-post">
+    <div class="show-post-title">
+        <h1 class="text-primary font-weight-bold text-uppercase"><%= @post.title %> </h1>
+    </div>
+
+    <div class="show-post-body">
+        <p class="">
+            <%= @post.post %>
+        </p>
+    </div>
+
+    <div class="media-left d-flex">
+                <%= gravatar_image_tag(current_user.email,size: 15, alt: current_user.name, class: 'rounded-circle mr-2') %>
+
+                <div class="content d-flex flex-column">
+                    
+                    <div class="d-flex flex-column m-0 p-0">
+                        <%= user_signed_in(@post) %>
+                    </div>    
+                </div>  
+            </div>
+
+</div>
