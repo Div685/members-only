@@ -1,0 +1,25 @@
+<%= simple_form_for(@post) do |f| %>
+  <%= f.error_notification %>
+    <div class="d-flex">
+      <div class="w-100 my-2 ">
+
+        <%= f.input :title,
+         required: true,
+         label: "Post Title: ", 
+         input_html: { class: "form-control "},
+         wrapper: false, 
+         label_html: {class: "lable "},
+          placeholder: "Title" %>
+        
+        <%= f.input :post, 
+         required: true, label: "Post something",
+         input_html: { class: "p-3 form-control"},
+         wrapper: false,
+         label_html: {class: "label d-flex mt-2"},
+         autofocus: true,
+         placeholder: "Compose a new Posts..." %>
+      </div>
+
+  </div>
+  <%= f.button :submit, class: "btn btn-info mb-3" %>
+<% end %>

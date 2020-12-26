@@ -1,0 +1,25 @@
+<div class="column is-half">
+<div class="card-title">
+    <h3 class="h3 text-primary text-capitalize font-weight-bold d-flex justify-content-center">Latest Posts</h3>
+    
+</div>
+<hr>
+<% @posts.each do | post | %>
+    <div class="box mb-2">
+        <article class="media">
+            <div class="media-left">
+                <figure class="image is-64x64 ">
+                    <%= gravatar_image_tag(post.user.email, size: 64, class: 'rounded-circle mr-2',  alt: post.user.name) %>
+                </figure>
+            </div>
+            <div class="media-content">
+                <div class="content">
+                <%= user_signed_in(post) %>
+                    <p> <%= post.title %> </p>
+                </div>
+            </div>
+        </article>
+    </div>
+    <hr />
+<% end %>
+</div>
